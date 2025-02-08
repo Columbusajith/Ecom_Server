@@ -274,9 +274,11 @@ router.post("/verifyemail", async (req, res) => {
 
 router.post(`/signin`, async (req, res) => {
   const { email, password } = req.body;
+  console.log("entry",email,password);
 
   try {
     const existingUser = await User.findOne({ email: email });
+    console.log("exit",existingUser);
     if (!existingUser) {
       res.status(404).json({ error: true, msg: "User not found!" });
       return;

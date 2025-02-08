@@ -52,9 +52,12 @@ app.use(`/api/homeBottomBanners`, homeBottomBannerSchema);
 
 
 //Database
-mongoose.connect(process.env.CONNECTION_STRING, {
+mongoose.connect('mongodb://127.0.0.1:27017/Columbus', {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000,
+    dbName: "Columbus"
+
 })
     .then(() => {
         console.log('Database Connection is ready...');
@@ -64,5 +67,5 @@ mongoose.connect(process.env.CONNECTION_STRING, {
         })
     })
     .catch((err) => {
-        console.log(err);
+        console.log("Mongodb connection error",err);
     })
