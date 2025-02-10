@@ -52,7 +52,7 @@ app.use(`/api/homeBottomBanners`, homeBottomBannerSchema);
 
 
 //Database
-mongoose.connect('mongodb://172.17.0.1:27017/Columbus', {
+mongoose.connect('mongodb://13.60.47.191:27017/Columbus', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     serverSelectionTimeoutMS: 5000,
